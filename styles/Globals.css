@@ -1,0 +1,11 @@
+@font-face {
+  font-family: "Valorant";
+  src: url("../src/fonts/Valorant\ Font.ttf") format("truetype");
+}
+
+* {
+  font-family: "Valorant", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
