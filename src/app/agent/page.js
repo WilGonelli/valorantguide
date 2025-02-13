@@ -5,6 +5,9 @@ import styles from "../../../styles/Agent.module.css";
 
 export default function AgentDetail() {
   const [agent, setAgent] = useState(null);
+  const [descript, setDescript] = useState("");
+  const [nameAbilit, setNameAbilit] = useState("");
+  const [click, setClick] = useState();
 
   useEffect(() => {
     const jsonAgent = localStorage.getItem("selectedAgent");
@@ -15,6 +18,12 @@ export default function AgentDetail() {
 
   if (!agent) {
     return <p>Erro ao carregar os dados do agente.</p>;
+  }
+
+  function handleDescript(name, descript, index) {
+    setDescript(descript);
+    setNameAbilit(name);
+    setClick(index);
   }
 
   return (
@@ -36,7 +45,7 @@ export default function AgentDetail() {
             alt={agent.fullPortraitV2}
           />
         </div>
-        <div className={styles.descriptions}>
+        <div>
           <h2 className={styles.tittle}>{agent.displayName}</h2>
           <p className={styles.classe}>
             <img
@@ -51,15 +60,32 @@ export default function AgentDetail() {
           <div className={styles.habilitiesArea}>
             {agent.abilities.map((ability, index) => {
               return (
-                <div key={index}>
-                  <button
-                    className={styles.abilityIcon}
-                    style={{ backgroundImage: `url(${ability.displayIcon})` }}
-                  ></button>
-                </div>
+                <button
+                  key={index}
+                  className={`${styles.abilityIcon} ${
+                    click === index ? styles.clicked : ""
+                  }`}
+                  style={{
+                    backgroundImage: `url(${ability.displayIcon})`,
+                    backgroundColor: `#${agent.backgroundGradientColors[2]}`,
+                  }}
+                  onClick={() =>
+                    handleDescript(
+                      ability.displayName,
+                      ability.description,
+                      index
+                    )
+                  }
+                >
+                  {index === 4 && !ability.displayIcon
+                    ? "Habilidade passiva"
+                    : ""}
+                </button>
               );
             })}
           </div>
+          <h3 className={styles.abilityTitlle}>{nameAbilit}</h3>
+          <p className={styles.description2}>{descript}</p>
         </div>
       </div>
     </main>

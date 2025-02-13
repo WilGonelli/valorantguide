@@ -10,6 +10,15 @@
     right: -100px;
     width: 400px;
   }
+  .abilityIcon {
+    width: 80px;
+    height: 80px;
+    background-size: cover;
+    transition: 0.5s;
+  }
+  .description {
+    width: 70%;
+  }
 }
 
 @media (min-width: 800px) {
@@ -29,9 +38,15 @@
     text-align: center;
   }
 
-  .habilitiesArea {
-    padding: 0 100px;
-    display: flex;
+  .abilityIcon {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    transition: 0.5s;
+    font-size: 20px;
+    color: rgb(243, 237, 237);
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
   }
 }
 
@@ -54,18 +69,17 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 50%;
+  width: 40%;
 }
-
-.descriptions {
+.habilitiesArea {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 100%;
+  flex-wrap: wrap;
 }
 
-.description {
+.description,
+.description2 {
   text-indent: 20px;
+  max-width: 90%;
   font-size: 24px;
   font-weight: bold;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
@@ -84,25 +98,24 @@
 .icon {
   width: 18px;
 }
-
-.habilitiesArea {
-  width: 100%;
-  justify-content: space-between;
-}
-
 .subTittle {
   text-align: center;
   padding-top: 20px;
   font-size: 24px;
 }
 
-.abilityIcon {
-  width: 100px;
-  height: 100px;
-  background-size: cover;
-  transition: 0.5s;
-}
-
 .abilityIcon:hover {
-  opacity: 0.5;
+  opacity: 0.8;
+}
+.clicked {
+  opacity: 0.6;
+}
+.abilityTitlle {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-align: center;
+  text-decoration: underline;
+  padding-bottom: 30px;
+  font-size: 30px;
+  font-weight: bold;
+  padding-top: 20px;
 }
