@@ -47,7 +47,19 @@ export default function AgentDetail() {
             {agent.role.displayName}
           </p>
           <p className={styles.description}>{agent.description}</p>
-          <div className={styles.habilitiesArea}></div>
+          <h3 className={styles.subTittle}>Habilidades</h3>
+          <div className={styles.habilitiesArea}>
+            {agent.abilities.map((ability, index) => {
+              return (
+                <div key={index}>
+                  <button
+                    className={styles.abilityIcon}
+                    style={{ backgroundImage: `url(${ability.displayIcon})` }}
+                  ></button>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </main>
