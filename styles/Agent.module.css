@@ -74,6 +74,7 @@
 .habilitiesArea {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .description,
